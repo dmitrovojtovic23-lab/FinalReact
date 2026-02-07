@@ -1,0 +1,43 @@
+/* App styles - using Tailwind CSS for most styling */
+.sidebar {
+  background-color: #f9fafb;
+  border-right: 1px solid #e5e7eb;
+}
+
+.task-card {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s;
+}
+
+.task-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.priority-high {
+  border-left: 4px solid #ef4444;
+}
+
+.priority-medium {
+  border-left: 4px solid #f59e0b;
+}
+
+.priority-low {
+  border-left: 4px solid #10b981;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #e0e7ff;
+  color: #3730a3;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  margin-right: 0.5rem;
+  margin-top: 0.25rem;
+}
+
