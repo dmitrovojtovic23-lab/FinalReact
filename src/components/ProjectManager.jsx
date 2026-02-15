@@ -19,11 +19,9 @@ export default function ProjectManager({
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6">📁 Управління проєктами</h2>
-
-      {/* Add New Project */}
+      <h2 className="text-2xl font-bold text-gray-800 mb-6"> Управління проєктами</h2>
       <form onSubmit={handleAddProject} className="mb-8 p-4 bg-gray-50 rounded-lg border border-gray-200">
-        <h3 className="text-lg font-semibold text-gray-800 mb-4">➕ Новий проєкт</h3>
+        <h3 className="text-lg font-semibold text-gray-800 mb-4"> Новий проєкт</h3>
         <div className="flex gap-3">
           <input
             type="text"
@@ -40,8 +38,6 @@ export default function ProjectManager({
           </button>
         </div>
       </form>
-
-      {/* Projects List */}
       <h3 className="text-lg font-semibold text-gray-800 mb-4">
         Мої проєкти ({projects.length})
       </h3>

@@ -36,7 +36,7 @@ export default function DateFilter({ dateFilter, setDateFilter }) {
               : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
           }`}
         >
-          📅 На день
+           На день
         </button>
 
         <button
@@ -51,7 +51,7 @@ export default function DateFilter({ dateFilter, setDateFilter }) {
               : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
           }`}
         >
-          📆 На тиждень
+           На тиждень
         </button>
 
         <button
@@ -66,15 +66,15 @@ export default function DateFilter({ dateFilter, setDateFilter }) {
               : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
           }`}
         >
-          📊 На місяць
+           На місяць
         </button>
       </div>
 
       {dateFilter.type !== 'all' && (
         <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded text-sm text-blue-800">
-          {dateFilter.type === 'day' && '📌 Показуються справи на сьогодні'}
-          {dateFilter.type === 'week' && '📌 Показуються справи на поточний тиждень'}
-          {dateFilter.type === 'month' && '📌 Показуються справи на поточний місяць'}
+          {dateFilter.type === 'day' && ' Показуються справи на сьогодні'}
+          {dateFilter.type === 'week' && ' Показуються справи на поточний тиждень'}
+          {dateFilter.type === 'month' && ' Показуються справи на поточний місяць'}
         </div>
       )}
     </div>

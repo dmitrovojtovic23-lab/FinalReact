@@ -30,7 +30,6 @@ export default function SearchBar({ searchFilters, setSearchFilters }) {
       <h3 className="text-lg font-semibold text-gray-800 mb-4">🔍 Пошук та фільтрування</h3>
 
       <div className="space-y-4">
-        {/* Search Input */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
             <Search className="inline mr-2 w-4 h-4" />
@@ -74,8 +73,6 @@ export default function SearchBar({ searchFilters, setSearchFilters }) {
             </button>
           </div>
         </div>
-
-        {/* Priority Filter */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Фільтр за пріоритетом:
@@ -105,7 +102,7 @@ export default function SearchBar({ searchFilters, setSearchFilters }) {
                   : 'bg-red-100 text-red-700 hover:bg-red-200'
               }`}
             >
-              🔴 Високий
+               Високий
             </button>
             <button
               onClick={() => setSearchFilters({
@@ -118,7 +115,7 @@ export default function SearchBar({ searchFilters, setSearchFilters }) {
                   : 'bg-yellow-100 text-yellow-700 hover:bg-yellow-200'
               }`}
             >
-              🟡 Середній
+               Середній
             </button>
             <button
               onClick={() => setSearchFilters({
@@ -131,12 +128,10 @@ export default function SearchBar({ searchFilters, setSearchFilters }) {
                   : 'bg-green-100 text-green-700 hover:bg-green-200'
               }`}
             >
-              🟢 Низький
+               Низький
             </button>
           </div>
         </div>
-
-        {/* Tag Filter */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Фільтр за тегами:

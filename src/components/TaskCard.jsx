@@ -24,11 +24,11 @@ export default function TaskCard({
   const getPriorityLabel = (priority) => {
     switch (priority) {
       case 'high':
-        return '🔴 Високий'
+        return ' Високий'
       case 'medium':
-        return '🟡 Середній'
+        return ' Середній'
       case 'low':
-        return '🟢 Низький'
+        return ' Низький'
       default:
         return priority
     }
@@ -76,21 +76,15 @@ export default function TaskCard({
           </button>
         </div>
       </div>
-
-      {/* Due Date */}
       <div className="text-sm text-gray-600 mb-3">
         <span className={`${isOverdue(task.dueDate) ? 'text-red-600 font-semibold' : ''}`}>
           📅 {formatDueDate(task.dueDate)}
         </span>
         {isOverdue(task.dueDate) && <span className="ml-2 text-red-600">⚠️ ПРОСТРОЧЕНО</span>}
       </div>
-
-      {/* Priority */}
       <div className="text-sm mb-3">
         <span className="font-medium">{getPriorityLabel(task.priority)}</span>
       </div>
-
-      {/* Tags */}
       {task.tags && task.tags.length > 0 && (
         <div className="mb-3 flex flex-wrap gap-2">
           {task.tags.map((tag) => (
@@ -100,15 +94,11 @@ export default function TaskCard({
           ))}
         </div>
       )}
-
-      {/* Project */}
       {task.projectId && (
         <div className="text-sm text-gray-600 mb-3">
           📁 {projects.find(p => p.id === task.projectId)?.name || 'Невідомий проєкт'}
         </div>
       )}
-
-      {/* Add to Project */}
       {!task.projectId && projects.length > 0 && (
         <div className="flex gap-2 mt-3">
           <select

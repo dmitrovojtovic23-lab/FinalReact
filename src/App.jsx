@@ -27,21 +27,15 @@ function App() {
     endDate: null,
   })
   const [editingTask, setEditingTask] = useState(null)
-
-  // Load tasks and projects from localStorage
   useEffect(() => {
     const savedTasks = localStorage.getItem('todos_tasks')
     const savedProjects = localStorage.getItem('todos_projects')
     if (savedTasks) setTasks(JSON.parse(savedTasks))
     if (savedProjects) setProjects(JSON.parse(savedProjects))
   }, [])
-
-  // Save tasks to localStorage
   useEffect(() => {
     localStorage.setItem('todos_tasks', JSON.stringify(tasks))
   }, [tasks])
-
-  // Save projects to localStorage
   useEffect(() => {
     localStorage.setItem('todos_projects', JSON.stringify(projects))
   }, [projects])
@@ -91,8 +85,6 @@ function App() {
     let filtered = selectedProject 
       ? tasks.filter(t => t.projectId === selectedProject.id)
       : tasks
-
-    // Apply search filters
     if (searchFilters.query) {
       filtered = filtered.filter(task => {
         if (searchFilters.searchType === 'name') {
@@ -117,8 +109,6 @@ function App() {
         searchFilters.tags.some(tag => task.tags?.includes(tag))
       )
     }
-
-    // Apply date filters
     if (dateFilter.type !== 'all') {
       const today = new Date()
       today.setHours(0, 0, 0, 0)
@@ -150,11 +140,8 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="flex">
-        {/* Sidebar */}
         <div className="sidebar w-64 p-6 h-screen overflow-y-auto sticky top-0">
           <h1 className="text-2xl font-bold text-gray-800 mb-6">📋 Список справ</h1>
-          
-          {/* Navigation Tabs */}
           <div className="space-y-2 mb-8">
             <button
               onClick={() => setActiveTab('tasks')}
@@ -164,7 +151,7 @@ function App() {
                   : 'text-gray-700 hover:bg-gray-100'
               }`}
             >
-              📝 Справи
+               Справи
             </button>
             <button
               onClick={() => setActiveTab('projects')}
@@ -174,11 +161,9 @@ function App() {
                   : 'text-gray-700 hover:bg-gray-100'
               }`}
             >
-              📁 Проєкти
+               Проєкти
             </button>
           </div>
-
-          {/* Projects List */}
           {activeTab === 'projects' && (
             <div>
               <h3 className="font-semibold text-gray-700 mb-3">Мої проєкти:</h3>
@@ -199,10 +184,7 @@ function App() {
             </div>
           )}
         </div>
-
-        {/* Main Content */}
         <div className="flex-1 p-6">
-          {/* Header */}
           <div className="mb-6">
             <h2 className="text-3xl font-bold text-gray-800 mb-2">
               {selectedProject ? `📁 ${selectedProject.name}` : '📝 Всі справи'}
@@ -219,7 +201,6 @@ function App() {
 
           {activeTab === 'tasks' ? (
             <>
-              {/* Task Form */}
               <TaskForm 
                 onAddTask={addTask}
                 onUpdateTask={updateTask}
@@ -227,8 +208,6 @@ function App() {
                 projects={projects}
                 onProjectSelect={setSelectedProject}
               />
-
-              {/* Search and Filter */}
               <div className="mb-6 space-y-4">
                 <SearchBar 
                   searchFilters={searchFilters}
@@ -239,8 +218,6 @@ function App() {
                   setDateFilter={setDateFilter}
                 />
               </div>
-
-              {/* Task List */}
               <TaskList
                 tasks={getFilteredTasks()}
                 onDeleteTask={deleteTask}

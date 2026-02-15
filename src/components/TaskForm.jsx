@@ -107,11 +107,10 @@ export default function TaskForm({
   return (
     <div className="bg-white rounded-lg shadow-md p-6 mb-6 border border-gray-200">
       <h3 className="text-xl font-semibold text-gray-800 mb-4">
-        {editingTask ? '✏️ Редагування справи' : '➕ Нова справа'}
+        {editingTask ? ' Редагування справи' : ' Нова справа'}
       </h3>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Name */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Назва справи *
@@ -125,7 +124,6 @@ export default function TaskForm({
           />
         </div>
 
-        {/* Description */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Опис справи
@@ -139,7 +137,6 @@ export default function TaskForm({
           />
         </div>
 
-        {/* Date and Time */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -167,7 +164,6 @@ export default function TaskForm({
           </div>
         </div>
 
-        {/* Priority */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
             <AlertCircle className="inline mr-2 w-4 h-4" />
@@ -178,13 +174,12 @@ export default function TaskForm({
             onChange={(e) => setFormData({ ...formData, priority: e.target.value })}
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            <option value="low">🟢 Низький</option>
-            <option value="medium">🟡 Середній</option>
-            <option value="high">🔴 Високий</option>
+            <option value="low"> Низький</option>
+            <option value="medium"> Середній</option>
+            <option value="high"> Високий</option>
           </select>
         </div>
 
-        {/* Tags */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
             <Tag className="inline mr-2 w-4 h-4" />
@@ -200,7 +195,7 @@ export default function TaskForm({
             {formData.tags.map((tag) => (
               <span
                 key={tag}
-                className="tag bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm flex items-center gap-2"
+                className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm flex items-center gap-2"
               >
                 {tag}
                 <button
@@ -215,10 +210,9 @@ export default function TaskForm({
           </div>
         </div>
 
-        {/* Project Selection */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            📁 Додати до проєкту
+            Додати до проєкту
           </label>
           <select
             value={formData.projectId || ''}
@@ -234,7 +228,6 @@ export default function TaskForm({
           </select>
         </div>
 
-        {/* Buttons */}
         <div className="flex gap-3 pt-4">
           <button
             type="submit"
